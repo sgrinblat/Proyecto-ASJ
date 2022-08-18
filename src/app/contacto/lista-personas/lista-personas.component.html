@@ -1,0 +1,21 @@
+<div class="container fondo-web">
+  <h2 class="text-center display-text mt-4 mb-4">Lista de personas</h2>
+  <table class="table table-striped mb-4">
+    <thead class="table-dark">
+      <tr>
+        <th class="display-text">Nombre</th>
+        <th class="display-text">Apellido</th>
+        <th class="display-text">Email</th>
+        <th class="display-text">Mensaje</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let persona of personas">
+        <td class="display-text">{{persona.nombre_formulario}}</td>
+        <td class="display-text">{{persona.apellido_formulario}}</td>
+        <td class="display-text">{{persona.email_formulario}}</td>
+        <td class="display-text">{{persona.mensaje_formulario}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
