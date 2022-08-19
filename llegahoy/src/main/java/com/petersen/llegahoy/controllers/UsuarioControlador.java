@@ -51,4 +51,27 @@ public class UsuarioControlador {
         }
     }
 
+    // método para eliminar un usuario registrado en la base de datos
+    @DeleteMapping("/personas")
+    public void eliminarUsuario(@RequestBody Usuario userData) {
+        Optional <Usuario> user = servicio.loguearUsuario(userData);
+        if(user.isPresent()){
+            servicio.eliminarUsuario(userData);
+        } else {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "El usuario que se desea eliminar no existe.");
+        }
+    }
+
+    // método para actualizar un usuario registrado en la base de datos (puede cambiarle la password)
+    @PutMapping("/personas")
+    @ResponseBody
+    public void actualizarUsuario(@RequestBody Usuario userData) throws Exception {
+        Optional <Usuario> user = servicio.loguearUsuario(userData);
+        if(!user.isPresent()){
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "El usuario ingresado para actualizar no existe!");
+        } else {
+            servicio.actualizarUsuario(userData);
+        }
+    }
+
 }

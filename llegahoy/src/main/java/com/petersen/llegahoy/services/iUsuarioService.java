@@ -12,4 +12,8 @@ public interface iUsuarioService {
     Optional <Usuario> loguearUsuario(Usuario user);
 
     Usuario registrarUsuario(Usuario userRegistrado);
+
+    public void eliminarUsuario(Usuario user);
+
+    Usuario actualizarUsuario(Usuario usuarioActualizado);
 }

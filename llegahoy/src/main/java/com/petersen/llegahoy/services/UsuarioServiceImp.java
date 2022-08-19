@@ -30,4 +30,14 @@ public class UsuarioServiceImp implements iUsuarioService {
         return iUsuarioRepo.save(userRegistrado);
     }
 
+    @Override
+    public void eliminarUsuario(Usuario user) {
+        iUsuarioRepo.delete(user);
+    }
+
+    @Override
+    public Usuario actualizarUsuario(@RequestBody Usuario usuarioActualizado) {
+        return iUsuarioRepo.save(usuarioActualizado);
+    }
+
 }
